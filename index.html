@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cambios de Forma Pokémon</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .content-section {
+      display: none;
+      margin-top: 1rem;
+    }
+    .content-section.active {
+      display: block;
+    }
+    .category-buttons button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -15,23 +30,56 @@
   <main>
     <section class="intro">
       <h2>🚀 Resumen</h2>
-      -------------------------------------------------
-      <p>En este sitio encontrarás una recopilación completa de los cambios de forma en Pokémon, organizados por región y tipo. Desde las primeras formas regionales introducidas en Alola, hasta las nuevas variantes Paradoja de Pasado y Futuro en Paldea, pasando por formas únicas como las Convergentes y las exclusivas de Hisui y Galar.
-        Cada sección te llevará a una categoría específica, explicando los Pokémon que cambian su tipo, forma, habilidad o incluso su historia en el lore. También incluimos una sección de Referencias con las fuentes consultadas para asegurar la precisión del contenido.</p>
+      <p>Explora los cambios de forma organizados por región. Haz clic en un botón para ver su contenido.</p>
     </section>
 
     <section class="features">
       <h2>✨ Categorías</h2>
-      -------------------------------------------------
-      <ul>
-        <li><a href="alola.md">☀️ Formas Alola</a></li>
-        <li><a href="galar.md">🏰 Formas Galar</a></li>
-        <li><a href="hisui.md">🏛️ Formas Hisui</a></li>
-        <li><a href="paldea.md">🔥 Formas Paldea</a></li>
-        <li><a href="convergentes.md">🔄 Formas Convergentes</a></li>
-        <li><a href="paradox-pasado.md">⏳ Paradox Pasado</a></li>
-        <li><a href="paradox-futuro.md">⏳ Paradox Futuro</a></li>
-      </ul>
+      <div class="category-buttons">
+        <button onclick="showSection('alola')">☀️ Región Alola</button>
+        <button onclick="showSection('galar')">🏰 Región Galar</button>
+        <button onclick="showSection('hisui')">🏛️ Región Hisui</button>
+        <button onclick="showSection('paldea')">🔥 Región Paldea</button>
+        <button onclick="showSection('convergentes')">🔄 Formas Convergentes</button>
+        <button onclick="showSection('pasado')">⏳ Paradox Pasado</button>
+        <button onclick="showSection('futuro')">⏳ Paradox Futuro</button>
+      </div>
+
+      <!-- Contenido dinámico por región -->
+      <div id="alola" class="content-section">
+        <h3>☀️ Formas Alola</h3>
+        <p>Contenido de la región Alola: Exeggutor alargado, Raichu surfero, Vulpix de hielo, etc.</p>
+      </div>
+
+      <div id="galar" class="content-section">
+        <h3>🏰 Formas Galar</h3>
+        <p>Contenido de la región Galar: Ponyta psíquico, Weezing con sombrero, Mr. Rime, etc.</p>
+      </div>
+
+      <div id="hisui" class="content-section">
+        <h3>🏛️ Formas Hisui</h3>
+        <p>Contenido de la región Hisui: Zoroark fantasma, Braviary psíquico, Growlithe roca/fuego, etc.</p>
+      </div>
+
+      <div id="paldea" class="content-section">
+        <h3>🔥 Formas Paldea</h3>
+        <p>Contenido de Paldea: Tauros en sus formas de combate, Wooper en forma venenosa, etc.</p>
+      </div>
+
+      <div id="convergentes" class="content-section">
+        <h3>🔄 Formas Convergentes</h3>
+        <p>Contenido sobre Pokémon que se parecen a otros, como Wiglett o Toedscool.</p>
+      </div>
+
+      <div id="pasado" class="content-section">
+        <h3>⏳ Paradox Pasado</h3>
+        <p>Pokémon antiguos como Great Tusk (Donphan del pasado), Roaring Moon (Salamence antiguo), etc.</p>
+      </div>
+
+      <div id="futuro" class="content-section">
+        <h3>⏳ Paradox Futuro</h3>
+        <p>Pokémon futuristas como Iron Treads (Donphan robótico), Iron Valiant (Gardevoir + Gallade), etc.</p>
+      </div>
     </section>
   </main>
 
@@ -39,6 +87,15 @@
     <p>Hecho con ❤️ por TuNombre</p>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
+
