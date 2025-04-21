@@ -41,11 +41,16 @@
   <main>
     <section class="intro">
       <h2>🚀 Resumen</h2>
-      <p>Explora los cambios de forma organizados por región. Usa el buscador o haz clic en una categoría.</p>
+      <p>En este sitio encontrarás una recopilación completa de los cambios de forma en Pokémon, organizados por región y tipo. Desde las primeras formas regionales introducidas en Alola, hasta las nuevas variantes Paradoja de Pasado y Futuro en Paldea, pasando por formas únicas como las Convergentes y las exclusivas de Hisui y Galar.
+
+Cada sección te llevará a una categoría específica, explicando los Pokémon que cambian su tipo, forma, habilidad o incluso su historia en el lore. También incluimos una sección de Referencias con las fuentes consultadas para asegurar la precisión del contenido.
+
+Este portafolio sirve como una guía visual y explicativa para entender cómo Pokémon ha evolucionado a lo largo de las generaciones a través de sus distintas formas.</p>
     </section>
 
     <section class="features">
       <h2>✨ Categorías</h2>
+      ---------------------------------------------------------------------------------------------------------
 
       <input type="text" id="searchInput" placeholder="Buscar región..." oninput="filterCategories()" />
 
@@ -57,6 +62,7 @@
         <button data-name="convergentes" onclick="showSection('convergentes')">🔄 Formas Convergentes</button>
         <button data-name="pasado" onclick="showSection('pasado')">⏳ Paradox Pasado</button>
         <button data-name="futuro" onclick="showSection('futuro')">⏳ Paradox Futuro</button>
+        <button data-name="futuro" onclick="showSection('referencias')">🤝 Referencias</button>
       </div>
 
       <!-- Contenido dinámico por región -->
@@ -92,7 +98,7 @@
   </main>
 
   <footer>
-    <p>Hecho con ❤️ por TuNombre</p>
+    <p>Hecho por ♦AlonsoVB♦</p>
   </footer>
 
   <script>
