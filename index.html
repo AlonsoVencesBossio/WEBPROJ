@@ -13,11 +13,22 @@
     .content-section.active {
       display: block;
     }
+    .category-buttons {
+      margin-bottom: 1rem;
+    }
     .category-buttons button {
       margin: 5px;
       padding: 10px;
       font-size: 1rem;
       cursor: pointer;
+      display: inline-block;
+    }
+    #searchInput {
+      padding: 10px;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -30,55 +41,52 @@
   <main>
     <section class="intro">
       <h2>🚀 Resumen</h2>
-      <p>Explora los cambios de forma organizados por región. Haz clic en un botón para ver su contenido.</p>
+      <p>Explora los cambios de forma organizados por región. Usa el buscador o haz clic en una categoría.</p>
     </section>
 
     <section class="features">
       <h2>✨ Categorías</h2>
+
+      <input type="text" id="searchInput" placeholder="Buscar región..." oninput="filterCategories()" />
+
       <div class="category-buttons">
-        <button onclick="showSection('alola')">☀️ Región Alola</button>
-        <button onclick="showSection('galar')">🏰 Región Galar</button>
-        <button onclick="showSection('hisui')">🏛️ Región Hisui</button>
-        <button onclick="showSection('paldea')">🔥 Región Paldea</button>
-        <button onclick="showSection('convergentes')">🔄 Formas Convergentes</button>
-        <button onclick="showSection('pasado')">⏳ Paradox Pasado</button>
-        <button onclick="showSection('futuro')">⏳ Paradox Futuro</button>
+        <button data-name="alola" onclick="showSection('alola')">☀️ Región Alola</button>
+        <button data-name="galar" onclick="showSection('galar')">🏰 Región Galar</button>
+        <button data-name="hisui" onclick="showSection('hisui')">🏛️ Región Hisui</button>
+        <button data-name="paldea" onclick="showSection('paldea')">🔥 Región Paldea</button>
+        <button data-name="convergentes" onclick="showSection('convergentes')">🔄 Formas Convergentes</button>
+        <button data-name="pasado" onclick="showSection('pasado')">⏳ Paradox Pasado</button>
+        <button data-name="futuro" onclick="showSection('futuro')">⏳ Paradox Futuro</button>
       </div>
 
       <!-- Contenido dinámico por región -->
       <div id="alola" class="content-section">
         <h3>☀️ Formas Alola</h3>
-        <p>Contenido de la región Alola: Exeggutor alargado, Raichu surfero, Vulpix de hielo, etc.</p>
+        <p>Contenido de la región Alola...</p>
       </div>
-
       <div id="galar" class="content-section">
         <h3>🏰 Formas Galar</h3>
-        <p>Contenido de la región Galar: Ponyta psíquico, Weezing con sombrero, Mr. Rime, etc.</p>
+        <p>Contenido de la región Galar...</p>
       </div>
-
       <div id="hisui" class="content-section">
         <h3>🏛️ Formas Hisui</h3>
-        <p>Contenido de la región Hisui: Zoroark fantasma, Braviary psíquico, Growlithe roca/fuego, etc.</p>
+        <p>Contenido de la región Hisui...</p>
       </div>
-
       <div id="paldea" class="content-section">
         <h3>🔥 Formas Paldea</h3>
-        <p>Contenido de Paldea: Tauros en sus formas de combate, Wooper en forma venenosa, etc.</p>
+        <p>Contenido de Paldea...</p>
       </div>
-
       <div id="convergentes" class="content-section">
         <h3>🔄 Formas Convergentes</h3>
-        <p>Contenido sobre Pokémon que se parecen a otros, como Wiglett o Toedscool.</p>
+        <p>Contenido sobre Pokémon convergentes...</p>
       </div>
-
       <div id="pasado" class="content-section">
         <h3>⏳ Paradox Pasado</h3>
-        <p>Pokémon antiguos como Great Tusk (Donphan del pasado), Roaring Moon (Salamence antiguo), etc.</p>
+        <p>Pokémon del pasado...</p>
       </div>
-
       <div id="futuro" class="content-section">
         <h3>⏳ Paradox Futuro</h3>
-        <p>Pokémon futuristas como Iron Treads (Donphan robótico), Iron Valiant (Gardevoir + Gallade), etc.</p>
+        <p>Pokémon futuristas...</p>
       </div>
     </section>
   </main>
@@ -90,10 +98,18 @@
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => {
-        section.classList.remove('active');
-      });
+      sections.forEach(section => section.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+    }
+
+    function filterCategories() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const buttons = document.querySelectorAll('.category-buttons button');
+
+      buttons.forEach(button => {
+        const name = button.textContent.toLowerCase();
+        button.style.display = name.includes(input) ? 'inline-block' : 'none';
+      });
     }
   </script>
 </body>
