@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f9f9f9;
+  background: #cdaffa;
   color: #333;
   line-height: 1.6;
   padding: 1rem;
@@ -15,7 +15,7 @@ body {
 header {
   text-align: center;
   padding: 2rem 1rem;
-  background: #007acc;
+  background: #8e49f5;
   color: white;
   border-radius: 1rem;
   margin-bottom: 2rem;
@@ -40,7 +40,7 @@ main {
 }
 
 .features li::before {
-  content: "🌟";
+  content: "♦";
   margin-right: 0.5rem;
 }
 
